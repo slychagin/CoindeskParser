@@ -1,21 +1,24 @@
+import os
 import csv
 import time
 from typing import List
+from dotenv import load_dotenv
 
 import aiohttp
 import asyncio
 from aiohttp import ContentTypeError, ClientConnectorError
 from aiohttp.web_exceptions import HTTPException
 
-HOST: str = 'https://www.coindesk.com'
-URL: str = 'https://www.coindesk.com/pf/api/v3/content/fetch/search?query='
-QUERY: str = '{"search_query":"bitcoin","sort":0,"page":0,"filter_url":""}'
+load_dotenv()
+
+HOST: str = os.environ.get('HOST')
+URL: str = os.environ.get('URL')
+QUERY: str = os.environ.get('QUERY')
 HEADERS: dict = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 '
-                  'Safari/537.36',
-    'Accept': '*/*'
+    'User-Agent': os.environ.get('USERAGENT'),
+    'Accept': os.environ.get('ACCEPT')
 }
-FILE: str = 'news.csv'
+FILE: str = os.environ.get('FILE')
 
 
 async def get_total_number() -> int:
