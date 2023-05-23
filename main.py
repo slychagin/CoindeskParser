@@ -104,13 +104,16 @@ async def main() -> None:
         try:
             pages_number = await user_input()
             urls = await get_urls(pages_number)
+            print('Loading...')
 
             for i, url in enumerate(urls):
-                print(f'Parse page {i + 1} from {len(urls)}')
-
                 async with session.get(url) as response:
                     news_data = await response.json()
                     data.extend(list(map(lambda x: x, news_data['items'])))
+
+                    # This line can be added for a beautiful display in the console,
+                    # but then the speed drops almost twice.
+                    # print(f'Parse page {i + 1} from {len(urls)}')
 
         except ClientConnectorError as e:
             print('Connection Error', str(e))
