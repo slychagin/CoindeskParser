@@ -3,7 +3,7 @@
 ![python](https://img.shields.io/badge/python-v3.10.5-blue)
 ![aiohttp](https://img.shields.io/badge/aiohttp-v3.8.4-red)
 
-News parser from coindesk.com
+#### News parser from coindesk.com
 #
 Быстрый парсер на основе библиотеки aiohttp.
 
@@ -23,7 +23,7 @@ https://www.coindesk.com/pf/api/v3/content/fetch/search?query=%7B%22search_query
 Доступ по нему получилось получить через Selenium, urllib и aiohttp.
 Selenium очень медленный в данном случае, urllib намного шустрее, но aiohttp намного быстрее, поэтому выбор пал на него.
 
-### Вы можете запустить этот проект локально просто сделав следующее:
+#### Вы можете запустить этот проект локально просто сделав следующее:
 - `git clone https://github.com/slychagin/CoindeskParser.git`;
 - у вас должен быть установлен Python;
 - установите все зависимости из файла requirements.txt.
