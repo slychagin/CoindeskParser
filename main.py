@@ -35,9 +35,7 @@ async def get_total_number() -> int:
                 total_number = int(json_data['metadata']['total']) // number_per_page + 1
                 return total_number
         except ContentTypeError:
-            print('Check your URL!\nIt must be:\n'
-                  'https://www.coi.com/pf/api/v3/content/fetch/search?query='
-                  '{"search_query":"bitcoin","sort":0,"page":0,"filter_url":""}')
+            print(f'Check your URL!\nIt must be:\n{URL}{QUERY}')
         except ClientConnectorError as e:
             print('Connection Error', str(e))
         except HTTPException as e:
